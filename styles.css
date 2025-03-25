@@ -40,16 +40,21 @@
     margin-left: auto; /* Empuja los íconos a la derecha */
 }
 
-/* Iconos del header */
+
 .iconButton {
     width: 24px;
     height: 24px;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.iconButton:hover {
+    transform: scale(1.1);
 }
 
 /* Línea separadora */
 .headerLine-1 {
-    height: 2px;
+    height: 1.5px;
     background: black;
     width: 100%;
 }
