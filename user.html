@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Usuario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta | VENCHA</title>
+    <link rel="stylesheet" href="user_styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
-	<h1>Pagina usuario</h1>
+    <header class="Header">
+        <div class="headerPart-1">
+            <div class="Logo">VENCHA</div>
+        </div>
+        <div class="headerLine-1"></div>
+    </header>
+
+    <main class="account-container">
+        <nav class="account-menu">
+            <a href="index.html" class="back">← Volver al inicio</a>
+
+            <button class="account-option" aria-label="Ver historial de pedidos">
+                <i class='bx bx-shopping-bag'></i>
+                <div>
+                    <strong>MIS PEDIDOS</strong>
+                    <p>Historial de pedidos</p>
+                </div>
+            </button>
+
+            <button class="account-option" aria-label="Ver mis direcciones guardadas">
+                <i class='bx bx-map-pin'></i>
+                <div>
+                    <strong>MIS DIRECCIONES</strong>
+                    <p>Mis direcciones</p>
+                </div>
+            </button>
+
+            <button class="account-option" aria-label="Ver mi información personal">
+                <i class='bx bx-user'></i>
+                <div>
+                    <strong>MI CUENTA</strong>
+                    <p>Mi información personal</p>
+                </div>
+            </button>
+
+            <button class="account-option logout" aria-label="Cerrar sesión">
+                <i class='bx bx-log-out'></i>
+                <span>CERRAR SESIÓN</span>
+            </button>
+        </nav>
+
+        <section class="account-image">
+            <img img src="SliderImages/Img4.jpg" alt="Personas modelando ropa de VENCHA en la calle">
+        </section>
+    </main>
 </body>
 </html>

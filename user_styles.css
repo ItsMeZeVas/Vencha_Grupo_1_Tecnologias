@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+/* Encabezado */
+.Header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Logo */
+.Logo {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Contenedor del header */
+.headerPart-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye los elementos */
+    background: white;
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Línea separadora */
+.headerLine-1 {
+    height: 1.5px;
+    background: black;
+    width: 100%;
+}
+
+/* Contenedor principal */
+.account-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ocupa toda la altura disponible */
+}
+
+
+/* Menú de la cuenta */
+.account-menu {
+    width: 40%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+}
+
+.back {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Botones del menú */
+.account-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.account-option i {
+    font-size: 24px;
+    color: black;
+}
+
+.account-option div {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-option strong {
+    font-size: 14px;
+}
+
+.account-option p {
+    font-size: 12px;
+    color: gray;
+}
+
+.account-option:hover {
+    background: #f0f0f0;
+}
+
+/* Botón de cerrar sesión */
+.logout {
+    color: red;
+    border: 1px solid red;
+}
+
+.logout i {
+    color: red;
+}
+
+/* Imagen*/
+.account-image {
+    width: 60%;
+    display: flex;
+    align-items: stretch; /* Para que crezca junto con el contenedor */
+    justify-content: center;
+    flex-grow: 1; /* Hace que ocupe toda la altura restante */
+}
+
+.account-image img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para que cubra toda el área */
+    border-radius: 10px; /* Bordes suaves */
+}
