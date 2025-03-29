@@ -201,19 +201,27 @@ a {
 
 .product {
     flex: 0 0 auto;
-    width: 33.33%; /* En pantallas grandes, 3 productos visibles */
-    scroll-snap-align: start;
+    width: 33.33%; /* Asegura que todos tengan el mismo tamaño */
     text-align: center;
-    margin: 0 10px; /* Espaciado entre productos */
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .product-title
 {
+    margin-top: 10px;
     font-weight: bold;
+}
+.product-price{
+    margin-top: 10px;
+
 }
 
 .product img {
-    width: 25vh;
-    height: 300px;
+    width: 50%;
+    height: 30vh;
     border-radius: 5px;
 }
 
@@ -344,11 +352,12 @@ a {
 
 @media (max-width: 768px) {
     .carousel {
-        width: 100%;
+        width: 90%;
         justify-content: center; /* Centra los productos */
     }
-
-    .product {
-        width: 50%; /* Ocupa el ancho completo para que solo se vea uno */
+    .product
+    {
+        width: 50%;
     }
+
 }
