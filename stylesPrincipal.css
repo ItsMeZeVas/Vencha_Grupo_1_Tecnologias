@@ -1,0 +1,354 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+.Header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Contenedor del header */
+.headerPart-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye los elementos */
+    background: white;
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Estilo del logo (Centrado) */
+.Logo {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Contenedor de iconos alineado a la derecha */
+.icons {
+    display: flex;
+    gap: 15px;
+    margin-left: auto; /* Empuja los íconos a la derecha */
+}
+
+
+.iconButton {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.iconButton:hover {
+    transform: scale(1.1);
+}
+
+/* Línea separadora */
+.headerLine-1 {
+    height: 1.5px;
+    background: black;
+    width: 100%;
+}
+
+/* Segunda parte del header (Categorías) */
+.headerPart-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    width: 100%;
+    min-height: 60px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Navegación de categorías */
+.Categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Enlaces de navegación */
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+/* Línea inferior del menú */
+.headerLine-2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: lightgray;
+    width: 100%;
+}
+/* === ESTILOS PARA EL SLIDER === */
+.SliderPart {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:-7%;
+}
+
+.splide {
+    width: 90%;
+    max-width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.splide__slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Ajustes para los botones de navegación de Splide */
+.splide__arrow {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: 0.5s;
+}
+
+.splide__arrow svg {
+    fill: white;
+}
+
+/* Paginación (puntos) */
+.splide__pagination {
+    bottom: 10px;
+}
+
+.splide__pagination__page {
+    background: white;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.splide__pagination__page.is-active {
+    background: black;
+    opacity: 1;
+}
+
+.featuredProducts-container
+{
+     display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: blues;
+}
+.featuredProducts-container{
+    height:10vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    margin-top: -15vh;
+}
+.featuredProducts-container h2{
+    font-size: 20px;
+    font-weight: bold;
+    position:relative;
+    text-align: center;
+}
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 90%; /* 3 productos de 200px + márgenes */
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    overflow:hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 90%;
+
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.product {
+    flex: 0 0 auto;
+    width: 33.33%; /* En pantallas grandes, 3 productos visibles */
+    scroll-snap-align: start;
+    text-align: center;
+    margin: 0 10px; /* Espaciado entre productos */
+}
+.product-title
+{
+    font-weight: bold;
+}
+
+.product img {
+    width: 25vh;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+.footer {
+    margin-top: 5vh;
+    width: 100%;
+    background-color: #4a4a4a; /* Color gris oscuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  /* Centrado vertical */
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 110px;  /* Ajusta la altura mínima */
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+    align-items: center; /* Asegura que las secciones también estén centradas */
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+@media (width: 845px) 
+    {
+    .destacados-container{
+        margin-top: 3vh;
+        height: 40px;
+    }
+}
+/* === MEDIA QUERIES PARA RESPONSIVIDAD === */
+
+/* 📌 Para tablets */
+@media (max-width: 1024px) {
+    .swiper-wrapper {
+        gap: 3vh;
+    }
+}
+
+/* 📌 Para móviles */
+@media (max-width: 768px) {
+    .swiper-container {
+        width: 100%;
+    }
+
+    .swiper-wrapper {
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    .swiper-slide {
+        max-width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+        justify-content: center; /* Centra los productos */
+    }
+
+    .product {
+        width: 50%; /* Ocupa el ancho completo para que solo se vea uno */
+    }
+}

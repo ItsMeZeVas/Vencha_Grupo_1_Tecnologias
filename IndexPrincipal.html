@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VENCHA</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesPrincipal.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 </head>
@@ -13,12 +13,12 @@
         <div class="headerPart-1">
             <div class="Logo">VENCHA</div>
             <div class="icons">
-                <img class="iconButton searchButton" src="Icons/search.svg" alt="searchButton">
+                <img class="iconButton searchButton" src="Icons/search.svg" alt="Button for search">
                 <a href="user.html">
-                    <img class="iconButton userButton" src="Icons/user.svg" alt="userButton">
+                    <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user">
                 </a>
                 <a href="cart.html">
-                    <img class="iconButton cartButton" src="Icons/cart.svg" alt="cartButton">
+                    <img class="iconButton cartButton" src="Icons/cart.svg" alt="Button for cart">
                 </a>
             </div>
         </div>
@@ -42,18 +42,76 @@
         <div class="splide" id="Slider">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide"><img src="SliderImages/Img1.jpg"></li>
-                    <li class="splide__slide"><img src="SliderImages/Img2.jpg"></li>
-                    <li class="splide__slide"><img src="SliderImages/Img3.jpg"></li>
+                    <li class="splide__slide"><img src="SliderImages/Img1.jpg" alt="Imagen1"></li>
+                    <li class="splide__slide"><img src="SliderImages/Img2.jpg" alt="Imagen2"></li>
+                    <li class="splide__slide"><img src="SliderImages/Img3.jpg" alt="Imagen3"></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="featuredProductsPart">
-        <div> </div>        
+    <div class="featuredProducts-container">
+        <h2>PRODUCTOS DESTACADOS</h2>
     </div>
-
+    <div class="carousel-container">
+    <button class="prev" onclick="scrollLeft()">&#10094;</button>
+    <div class="carousel">
+        <div class="product">
+            <img src="FeaturedProducts/Producto1.jpg" alt="Producto 1">
+            <p class="product-title">Roxie Red Overshirt</p>
+            <p class="product-price">$189.900</p>
+        </div>
+        <div class="product">
+            <img src="FeaturedProducts/Producto2.jpg" alt="Producto 2">
+            <p class="product-title">Roxie Red Overshirt</p>
+            <p class="product-price">$189.900</p>
+        </div>
+        <div class="product">
+            <img src="FeaturedProducts/Producto3.jpg" alt="Producto 3">
+            <p class="product-title">Roxie Red Overshirt</p>
+            <p class="product-price">$189.900</p>
+        </div>
+        <div class="product">
+            <img src="FeaturedProducts/Producto1.jpg" alt="Producto 4">
+            <p class="product-title">Roxie Red Overshirt</p>
+            <p class="product-price">$189.900</p>
+        </div>
+        <div class="product">
+            <img src="FeaturedProducts/Producto2.jpg" alt="Producto 5">
+            <p class="product-title">Roxie Red Overshirt</p>
+            <p class="product-price">$189.900</p>
+        </div>
+        <div class="product">
+            <img src="FeaturedProducts/Producto3.jpg" alt="Producto 5">
+            <p class="product-title">Roxie Red Overshirt</p>
+            <p class="product-price">$189.900</p>
+        </div>
+    </div>
+    <button class="next" onclick="scrollRight()">&#10095;</button>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="scriptSlider.js"></script>
+    <script src="scriptSwiper.js"></script>
 </body>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">VENCHA</div>
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>Acerca de VENCHA</h4>
+                <ul>
+                    <li><a href="#">Aviso de Privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Formas de pago</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Información adicional</h4>
+                <ul>
+                    <li><a href="#">Registro</a></li>
+                    <li><a href="#">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </html> 
