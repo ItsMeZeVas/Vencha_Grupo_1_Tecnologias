@@ -7,13 +7,22 @@
 }
 
 .Header {
+    position: fixed;
     display: flex;
     flex-direction: column;
     width: 100%;
+    top: -1px;
+    z-index: 1000;
 }
 
+body {
+    margin: 0;
+    padding-top: 70px; /* Ajusta este valor según la altura del header */
+    font-family: Arial, sans-serif;
+}
 /* Contenedor del header */
 .headerPart-1 {
+
     display: flex;
     align-items: center;
     justify-content: space-between; /* Distribuye los elementos */
@@ -101,7 +110,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top:-7%;
+    margin-top:-3%;
 }
 
 .splide {
@@ -201,13 +210,14 @@ a {
 
 .product {
     flex: 0 0 auto;
-    width: 33.33%; /* Asegura que todos tengan el mismo tamaño */
+    width: 33.33%;
     text-align: center;
     scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 .product-title
 {
@@ -220,7 +230,7 @@ a {
 }
 
 .product img {
-    width: 50%;
+    width: 120%;
     height: 30vh;
     border-radius: 5px;
 }
@@ -349,15 +359,21 @@ a {
         gap: 15px;
     }
 }
-
 @media (max-width: 768px) {
     .carousel {
-        width: 90%;
-        justify-content: center; /* Centra los productos */
-    }
-    .product
-    {
-        width: 50%;
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
     }
 
+    .product {
+        width: 50%; /* Ahora se ven 2 productos a la vez */
+        text-align: center;
+    }
+
+    .product img {
+        width: 80%;
+        height: 30vh;
+    }
 }
