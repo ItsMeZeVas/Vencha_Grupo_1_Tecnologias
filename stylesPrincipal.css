@@ -227,7 +227,7 @@ a {
 
 .product img {
     width: 120%;
-    height: 30vh;
+    height: 320px;
     border-radius: 5px;
 }
 
@@ -370,13 +370,13 @@ a {
 
     .product img {
         width: 120%;
-        height: 30vh;
+        height: 100%;
     }
 }
 
 @media (max-height: 900px) {
 
 .ProductsSection{
-    margin-top: -80px;
+    margin-top: 1px;
     }
 }
