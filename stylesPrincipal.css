@@ -375,7 +375,7 @@ a {
     }
 
     .product img {
-        width: 120%;
+        width: 150%;
         height: 324px;
     }
 }
@@ -384,5 +384,12 @@ a {
 
 .ProductsSection{
     margin-top: 1px;
+    }
+}
+
+@media (max-height: 500px) {
+
+.ProductsSection{
+    margin-top: 40px;
     }
 }
