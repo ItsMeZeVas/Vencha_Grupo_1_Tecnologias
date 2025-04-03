@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+html, body {
+    min-height: 900px; 
+    height: 100%;
+    overflow-y: auto; /* Asegura que el contenido pueda desplazarse si es necesario */
+}
+
 .Header {
     position: fixed;
     display: flex;
