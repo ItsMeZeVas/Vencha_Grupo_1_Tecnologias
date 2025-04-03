@@ -160,13 +160,10 @@ a {
     opacity: 1;
 }
 
-.featuredProducts-container
-{
-     display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: blues;
+.ProductsSection{
+    margin-top: -15vh;
 }
+
 .featuredProducts-container{
     height:10vh;
     width:100%;
@@ -175,7 +172,6 @@ a {
     text-align: center;
     justify-content: center;
     position: relative;
-    margin-top: -15vh;
 }
 .featuredProducts-container h2{
     font-size: 20px;
@@ -375,5 +371,13 @@ a {
     .product img {
         width: 120%;
         height: 30vh;
+    }
+}
+
+@media (max-height: 900px) {
+
+.ProductsSection{
+    background-color: red;
+    margin-top: -80px;
     }
 }
