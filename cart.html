@@ -27,9 +27,21 @@
         <div class="headerLine-1"></div>
     </header>    
 
-    <main class="product-list" id="product-list">
-        <!-- Productos en el .js-->
-    </main>
+    <div class="grid-container">
+        <main class="product-list" id="product-list">
+            <!-- Productos generados dinámicamente por JavaScript -->
+        </main>
+
+        <!-- Tarjeta de resumen de pedido -->
+        <aside class="order-summary">
+            <h2>Resumen del Pedido</h2>
+            <div class="order-items" id="order-items">
+                <!-- Productos añadidos dinámicamente -->
+            </div>
+            <p class="order-total">Total: <span id="total-price">$0</span></p>
+            <button class="buy-button">Finalizar Compra</button>
+        </aside>
+    </div>
     
     <footer class="Footer">
         <div class="footer-container">
