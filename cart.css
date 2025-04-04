@@ -55,18 +55,9 @@ body {
     cursor: pointer;
     transition: transform 0.2s;
 }
-
-.iconButton {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
 .iconButton:hover {
     transform: scale(1.1);
 }
-
 
 /* Contenedor principal */
 .product-container {
@@ -213,6 +204,7 @@ body {
     background-color: #000000;
 }
 
+
 /* Footer */
 .Footer {
     background: #4a4a4a;
@@ -250,7 +242,6 @@ body {
     text-decoration: none;
     margin-bottom: 5px;
 }
-
 /* Responsive */
 @media (max-width: 768px) {
     .product-container {

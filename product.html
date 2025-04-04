@@ -11,7 +11,9 @@
     <header class="Header">
         <div class="headerPart-1">
             <a href="IndexPrincipal.html" class="icon-button"><i class='bx bx-arrow-back'></i></a>
+            <a href="IndexPrincipal.html">
             <div class="Logo">VENCHA</div>
+            </a>
             <div class="icons">
                 <img class="iconButton searchButton" src="Icons/search.svg" alt="Button for search">
                 <a href="user.html">
@@ -44,7 +46,11 @@
             <p class="product-price-label">PRECIO:</p>
             <p class="product-price">$189.900</p>
 
-            <button class="cart-button">Añadir al carrito</button>
+            <button id="carrito" class="cart-button">Añadir al carrito</button>
+
+                <div id="notificacion" class="oculto">Se ha añadido al carrito</div>
+                <script src="Producto.js"></script>
+
             <button class="buy-button">Comprar Ahora</button>
         </section>
     </main>
