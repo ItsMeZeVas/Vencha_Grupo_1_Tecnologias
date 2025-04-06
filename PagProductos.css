@@ -5,10 +5,7 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-.textoheader{
-    color:white;
-    display: none;
-}
+
 a {
     color: black;
 }
@@ -23,6 +20,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+.negrilla{
+    font-weight: bold;
 }
 
 .headerPart-1 {

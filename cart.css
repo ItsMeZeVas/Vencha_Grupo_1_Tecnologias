@@ -21,6 +21,9 @@ body {
     flex-direction: column;
     width: 100%;
 }
+.negrilla{
+    font-weight: bold;
+}
 
 .headerPart-1 {
     display: flex;

@@ -5,13 +5,7 @@
     font-family: 'Arial', sans-serif;
     box-sizing: border-box;
 }
-.textoheader{
-    color:white;
-    display: none;
-}
-.negrilla{
-    font-weight: bold;
-}
+
 html, body {
     min-height: 900px; 
     height: 100%;
@@ -31,6 +25,9 @@ body {
     margin: 0;
     padding-top: 70px; /* Ajusta este valor según la altura del header */
     font-family: Arial, sans-serif;
+}
+.negrilla{
+    font-weight: bold;
 }
 /* Contenedor del header */
 .headerPart-1 {
