@@ -9,7 +9,9 @@
     color:white;
     display: none;
 }
-
+.negrilla{
+    font-weight: bold;
+}
 html, body {
     min-height: 900px; 
     height: 100%;
