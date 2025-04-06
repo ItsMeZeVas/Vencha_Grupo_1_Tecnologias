@@ -5,6 +5,10 @@
     font-family: 'Arial', sans-serif;
     box-sizing: border-box;
 }
+.textoheader{
+    color:white;
+    display: none;
+}
 
 html, body {
     min-height: 900px; 

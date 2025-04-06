@@ -5,7 +5,10 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-
+.textoheader{
+    color:white;
+    display: none;
+}
 a {
     color: black;
 }
