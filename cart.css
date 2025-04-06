@@ -184,19 +184,22 @@ body {
     background-color: #000000;
 }
 
-/* Footer */
-.Footer {
-    background: #222;
+.footer {
+    margin-top: 5vh;
+    width: 100%;
+    background-color: #4a4a4a; /* Color gris oscuro */
     color: white;
-    padding: 20px;
+    padding: 20px 0;
     text-align: center;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;  /* Centrado vertical */
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 110px;  /* Ajusta la altura mínima */
 }
 
 .footer-logo {
@@ -206,22 +209,33 @@ body {
 
 .footer-links {
     display: flex;
-    gap: 40px;
+    gap: 50px;
+    align-items: center; /* Asegura que las secciones también estén centradas */
 }
 
-.footer-column h4 {
-    font-size: 16px;
+.footer-section h4 {
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.footer-column a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    display: block;
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
     margin-bottom: 5px;
 }
 
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
 
 /* Responsividad */
 @media (max-width: 768px) {

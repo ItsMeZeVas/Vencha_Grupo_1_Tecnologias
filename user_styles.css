@@ -139,6 +139,58 @@ body {
     object-fit: cover;
     border-radius: 10px;
 }
+.footer {
+    margin-top: 5vh;
+    width: 100%;
+    background-color: #4a4a4a; /* Color gris oscuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  /* Centrado vertical */
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 110px;  /* Ajusta la altura mínima */
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+    align-items: center; /* Asegura que las secciones también estén centradas */
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
