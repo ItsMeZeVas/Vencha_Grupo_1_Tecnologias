@@ -1,23 +1,26 @@
-document.getElementById("carrito").addEventListener("click", function() {
+document.getElementById("carrito").addEventListener("click", function () {
     let notificacion = document.getElementById("notificacion");
-    
-    notificacion.style.display = "block"; // Muestra la notificación
-    
-    setTimeout(function() {
-        notificacion.style.display = "none"; // Oculta la notificación después de 3 segundos
+
+    // Obtener nombre del producto
+    const nombre = document.querySelector(".product-details h2").textContent;
+    const precioTexto = document.querySelector(".product-price").textContent;
+    const precio = parseInt(precioTexto.replace(/\D/g, '')); // Extrae número
+
+    // Obtener talla seleccionada
+    const tallaSeleccionada = document.querySelector(".size-button.seleccionado");
+    const talla = tallaSeleccionada ? tallaSeleccionada.textContent : "No especificada";
+
+    // Crear objeto de producto
+    const producto = { nombre, precio, talla };
+
+    // Obtener carrito actual y añadir producto
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.push(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    // Mostrar notificación
+    notificacion.style.display = "block";
+    setTimeout(() => {
+        notificacion.style.display = "none";
     }, 3000);
 });
-// Seleccionar todos los botones de talla
-const botonesTalla = document.querySelectorAll(".size-button");
-
-if (botonesTalla.length > 0) {
-    botonesTalla.forEach(boton => {
-        boton.addEventListener("click", function() {
-            // Remover la clase "seleccionado" de todos los botones
-            botonesTalla.forEach(btn => btn.classList.remove("seleccionado"));
-
-            // Agregar la clase "seleccionado" solo al botón clickeado
-            this.classList.add("seleccionado");
-        });
-    });
-}

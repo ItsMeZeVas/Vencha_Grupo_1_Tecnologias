@@ -13,7 +13,10 @@
         <div class="headerPart-1">
             <h1 class="Logo">VENCHA</h1>
             <div class="icons">
-                <img class="iconButton searchButton" src="Icons/search.svg" alt="Button for search">
+                <div class="search-wrapper">
+                  <img class="iconButton searchButton" src="Icons/search.svg" alt="Buscar">
+                  <input type="text" class="searchInput hidden" placeholder="Buscar...">
+                </div>
                 <a href="user.html">
                     <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user">
                 </a>
@@ -38,9 +41,9 @@
         <div class="splide" id="Slider">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide"><img src="SliderImages/Img1.jpeg" alt="Imagen1"></li>
-                    <li class="splide__slide"><img src="SliderImages/Img2.jpeg" alt="Imagen2"></li>
-                    <li class="splide__slide"><img src="SliderImages/Img3.jpeg" alt="Imagen3"></li>
+                    <li class="splide__slide"><img src="SliderImages/Img1.jpeg" alt="ImagenPromocional1"></li>
+                    <li class="splide__slide"><img src="SliderImages/Img2.jpeg" alt="ImagenPromocional2"></li>
+                    <li class="splide__slide"><img src="SliderImages/Img3.jpeg" alt="ImagenPromocional3"></li>
                 </ul>
             </div>
         </div>
@@ -108,6 +111,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="scriptSlider.js"></script>
     <script src="scriptSwiper.js"></script>
+    <script src="scriptSearch.js"></script>
 </body>
 <footer class="footer">
     <div class="footer-container">
@@ -116,16 +120,16 @@
             <div class="footer-section">
                 <p class="negrilla">Acerca de VENCHA</p>
                 <ul>
-                    <li><a href="#">Aviso de Privacidad</a></li>
-                    <li><a href="#">Términos y condiciones</a></li>
-                    <li><a href="#">Formas de pago</a></li>
+                    <li><p href="#">Aviso de Privacidad</p></li>
+                    <li><p href="#">Términos y condiciones</p></li>
+                    <li><p href="#">Formas de pago</p></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <p class="negrilla">Información adicional</p>
                 <ul>
-                    <li><a href="#">Registro</a></li>
-                    <li><a href="#">Contáctanos</a></li>
+                    <li><p href="#">Registro</p></li>
+                    <li><p href="#">Contáctanos</p></li>
                 </ul>
             </div>
         </div>

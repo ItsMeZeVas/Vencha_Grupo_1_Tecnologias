@@ -2,10 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const productList = document.getElementById("product-list");
     const orderItems = document.getElementById("order-items");
     const totalPriceElement = document.getElementById("total-price");
-
+    const finalizarCompraBtn = document.querySelector(".buy-button");
     let total = 0;
 
-    // Simulación de productos
+    const productosLS = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    productosLS.forEach(product => {
+        addToOrder(product.nombre, product.precio, product.talla);
+    });
+
     const products = [
         { id: 1, name: "ROXIE RED OVERSHIRT", price: 189900, image: "img/camiseta_negra.jpg", talla: "S" },
         { id: 2, name: "Jeans Azules", price: 189900, image: "img/jeans_azules.jpg", talla: "XL" },
@@ -13,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { id: 4, name: "Chaqueta de Cuero", price: 250000, image: "img/chaqueta_cuero.jpg", talla: "L" }
     ];
 
-    // Render de productos y resumen inicial
     products.forEach(product => {
         const productElement = document.createElement("div");
         productElement.classList.add("product-container");
@@ -22,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <section class="product-image">
                 <div class="image-placeholder" style="background-image: url('${product.image}');"></div>
             </section>
-
             <section class="product-details">
                 <h2 class="product-name">${product.name}</h2>
                 <p class="product-subtitle">Tallas: ${product.talla}</p>
@@ -30,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <button class="add-to-cart buy-button" 
                         data-id="${product.id}" 
                         data-name="${product.name}" 
-                        data-price="${product.price}">
+                        data-price="${product.price}" 
+                        data-talla="${product.talla}">
                     Agregar
                 </button>
                 <button class="remove-from-cart buy-button" 
@@ -43,50 +47,63 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         productList.appendChild(productElement);
-
-        // Añadir automáticamente al resumen
-        addToOrder(product.name, product.price);
     });
 
-    // Función para añadir producto
-    function addToOrder(name, price) {
+    function addToOrder(name, price, talla = "No especificada") {
         const orderItem = document.createElement("div");
         orderItem.classList.add("order-item");
         orderItem.setAttribute("data-name", name);
         orderItem.setAttribute("data-price", price);
-        orderItem.innerHTML = `<p>${name} - $${price.toLocaleString()}</p>`;
+        orderItem.innerHTML = `<p>${name} - Talla: ${talla} - $${price.toLocaleString()}</p>`;
         orderItems.appendChild(orderItem);
         total += price;
         updateTotal();
     }
 
-    // Función para quitar un producto (una unidad)
     function removeFromOrder(name, price) {
         const items = document.querySelectorAll(`.order-item[data-name="${name}"]`);
         if (items.length > 0) {
-            items[0].remove(); // Elimina solo una ocurrencia
+            items[0].remove();
             total -= price;
             updateTotal();
         }
     }
 
-    // Actualizar total visualmente
     function updateTotal() {
         totalPriceElement.textContent = `$${total.toLocaleString()}`;
     }
 
-    // Delegación de eventos para botones
     document.addEventListener("click", function (event) {
         if (event.target.classList.contains("add-to-cart")) {
             const name = event.target.dataset.name;
             const price = parseFloat(event.target.dataset.price);
-            addToOrder(name, price);
+            const talla = event.target.dataset.talla;
+            addToOrder(name, price, talla);
         }
 
         if (event.target.classList.contains("remove-from-cart")) {
             const name = event.target.dataset.name;
             const price = parseFloat(event.target.dataset.price);
             removeFromOrder(name, price);
+        }
+    });
+
+    finalizarCompraBtn?.addEventListener("click", () => {
+        const items = document.querySelectorAll(".order-item");
+        const productosSeleccionados = [];
+
+        items.forEach(item => {
+            const name = item.getAttribute("data-name");
+            const price = parseFloat(item.getAttribute("data-price"));
+            productosSeleccionados.push({ name, price });
+        });
+
+        if (productosSeleccionados.length > 0) {
+            localStorage.setItem("productosSeleccionados", JSON.stringify(productosSeleccionados));
+            localStorage.removeItem("carrito"); // Limpiar carrito original
+            window.location.href = "pasarela.html";
+        } else {
+            alert("No hay productos en el carrito.");
         }
     });
 });
