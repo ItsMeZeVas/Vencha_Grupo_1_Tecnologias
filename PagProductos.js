@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p class="product-price-label">PRECIO:</p>
                 <p class="product-price">${product.price}</p>
                 <button class="cart-button">Añadir al carrito</button>
-                <a href="cart.html"class="buy-button">Comprar Ahora</a>
             </div>
         `;
 

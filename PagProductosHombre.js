@@ -21,9 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="product-details">
                 <h2 class="product-name">${product.name}</h2>
                 <p class="product-price-label">PRECIO:</p>
-                <p class="product-price">${product.price}</p>
+                <h3 class="product-price">${product.price}</h3>
                 <button class="cart-button">Añadir al carrito</button>
-                <a href="cart.html" class="buy-button">Comprar Ahora</a>
             </div>
         `;
 
