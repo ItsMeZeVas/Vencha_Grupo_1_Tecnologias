@@ -74,6 +74,7 @@ body {
   grid-template-columns: repeat(12, 1fr);
   max-width: 1200px;
   margin: 40px auto;
+  margin-left: 30%;
   background: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -230,4 +231,20 @@ body {
   .header-icons {
     margin-top: 10px;
   }
+  
 }
+@media (max-width: 900px) {
+  .profile-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 225px;
+  margin: 40px auto;
+  margin-left: 11vh;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+}
+
+
