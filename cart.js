@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const productList = document.getElementById("product-list");
     const orderItems = document.getElementById("order-items");
     const totalPriceElement = document.getElementById("total-price");
+    const finalizarCompraBtn = document.querySelector(".buy-button");
 
     let total = 0;
 
-    // Simulación de productos
     const products = [
         { id: 1, name: "ROXIE RED OVERSHIRT", price: 189900, image: "img/camiseta_negra.jpg", talla: "S" },
         { id: 2, name: "Jeans Azules", price: 189900, image: "img/jeans_azules.jpg", talla: "XL" },
@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { id: 4, name: "Chaqueta de Cuero", price: 250000, image: "img/chaqueta_cuero.jpg", talla: "L" }
     ];
 
-    // Render de productos y resumen inicial
     products.forEach(product => {
         const productElement = document.createElement("div");
         productElement.classList.add("product-container");
@@ -48,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addToOrder(product.name, product.price);
     });
 
-    // Función para añadir producto
     function addToOrder(name, price) {
         const orderItem = document.createElement("div");
         orderItem.classList.add("order-item");
@@ -60,22 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
         updateTotal();
     }
 
-    // Función para quitar un producto (una unidad)
     function removeFromOrder(name, price) {
         const items = document.querySelectorAll(`.order-item[data-name="${name}"]`);
         if (items.length > 0) {
-            items[0].remove(); // Elimina solo una ocurrencia
+            items[0].remove();
             total -= price;
             updateTotal();
         }
     }
 
-    // Actualizar total visualmente
     function updateTotal() {
         totalPriceElement.textContent = `$${total.toLocaleString()}`;
     }
 
-    // Delegación de eventos para botones
     document.addEventListener("click", function (event) {
         if (event.target.classList.contains("add-to-cart")) {
             const name = event.target.dataset.name;
@@ -87,6 +82,25 @@ document.addEventListener("DOMContentLoaded", function () {
             const name = event.target.dataset.name;
             const price = parseFloat(event.target.dataset.price);
             removeFromOrder(name, price);
+        }
+    });
+
+    // Guardar en localStorage al finalizar compra
+    finalizarCompraBtn?.addEventListener("click", () => {
+        const items = document.querySelectorAll(".order-item");
+        const productosSeleccionados = [];
+
+        items.forEach(item => {
+            const name = item.getAttribute("data-name");
+            const price = parseFloat(item.getAttribute("data-price"));
+            productosSeleccionados.push({ name, price });
+        });
+
+        if (productosSeleccionados.length > 0) {
+            localStorage.setItem("productosSeleccionados", JSON.stringify(productosSeleccionados));
+            window.location.href = "pasarela.html"; // Ajusta si el nombre de tu archivo es diferente
+        } else {
+            alert("No hay productos en el carrito.");
         }
     });
 });
