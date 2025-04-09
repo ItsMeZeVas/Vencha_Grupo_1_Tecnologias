@@ -127,7 +127,7 @@ body {
 
 /* Botón de cerrar sesión */
 .logout {
-    color: red;
+    color: #b10000;
     font-weight: bold;
     border: 1px solid red;
 }
@@ -135,6 +135,9 @@ body {
 .logout i {
     color: red;
 }
+
+
+
 
 /* Imagen */
 .account-image {
