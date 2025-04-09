@@ -20,13 +20,18 @@ body {
 .negrilla{
     font-weight: bold;
 }
+.bx-arrow-back{
+    color: black;
+}
 /* Logo */
 .Logo {
-    font-size: 20px;
+     font-size: 20px;
     font-weight: bold;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 50%;
+    transform: translateX(50%);
+    top:30%;
+    color: black;
 }
 
 /* Contenedor del header */
