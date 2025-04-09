@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         productElement.innerHTML = `
             <section class="product-image">
-                <div class="image-placeholder" style="background-image: url('${product.image}');"></div>
+                <img src="${product.image}" alt="${product.name}" class="image-placeholder" />
             </section>
             <section class="product-details">
                 <h2 class="product-name">${product.name}</h2>

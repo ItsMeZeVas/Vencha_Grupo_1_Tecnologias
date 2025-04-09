@@ -97,6 +97,10 @@ body {
     color: black;
 }
 
+.account-option a {
+ text-decoration: none;
+}
+
 .account-option div {
     display: flex;
     flex-direction: column;
@@ -104,11 +108,12 @@ body {
 
 .account-option strong {
     font-size: 14px;
+    color: black;
 }
 
 .account-option p {
     font-size: 12px;
-    color: gray;
+    color: #555555;
 }
 
 .account-option:hover {
@@ -118,6 +123,7 @@ body {
 /* Botón de cerrar sesión */
 .logout {
     color: red;
+    font-weight: bold;
     border: 1px solid red;
 }
 
