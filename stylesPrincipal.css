@@ -112,6 +112,9 @@ body {
     background: black;
     width: 100%;
 }
+.visually-hidden {
+    display:none;
+}
 
 /* Segunda parte del header (Categorías) */
 .headerPart-2 {
