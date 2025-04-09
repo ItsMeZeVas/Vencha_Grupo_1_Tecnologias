@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información Personal | VENCHA</title>
+  <link rel="stylesheet" href="Profile.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-top">
+      <a href="IndexPrincipal.html" class="header-logo" aria-label="Volver a la página principal">
+        <i class='bx bx-arrow-back'></i>
+        <h1 class="logo-text">VENCHA</h1>
+      </a>
+      <div class="header-icons">
+        <img class="icon-button" src="Icons/search.svg" alt="Buscar">
+        <a href="user.html"><img class="icon-button" src="Icons/user.svg" alt="Usuario"></a>
+        <a href="cart.html"><img class="icon-button" src="Icons/cart.svg" alt="Carrito"></a>
+      </div>
+    </div>
+    <div class="header-line"></div>
+  </header>
+
+  <main class="profile-container">
+    <form class="profile-form" id="profileForm">
+      <h2 class="section-title">PERFIL</h2>
+      <div class="form-grid">
+        <input type="text" id="nombre" placeholder="Nombre" required />
+        <input type="tel" id="telefono" placeholder="Teléfono" required />
+        <input type="email" id="correo" placeholder="Correo Electrónico" required />
+      </div>
+      <button class="btn-continue" type="submit">Actualizar</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">VENCHA</div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <p class="bold">Acerca de VENCHA</p>
+          <ul>
+            <li><a href="#">Aviso de Privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Formas de pago</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p class="bold">Información adicional</p>
+          <ul>
+            <li><a href="#">Registro</a></li>
+            <li><a href="#">Contáctanos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Profile.js"></script>
+</body>
+</html>
