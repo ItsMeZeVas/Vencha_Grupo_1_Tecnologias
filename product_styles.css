@@ -172,11 +172,11 @@ body {
 }
 
 .size-button:hover{
-    background: #858585;
+    background: #555555;
     color: white;
 }
 .size-button:active{
-    background: #555555;
+    background: #black;
     color: white;
 }
 .size-button.seleccionado {

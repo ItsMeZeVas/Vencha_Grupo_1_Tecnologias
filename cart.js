@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const products = [
-        { id: 1, name: "ROXIE RED OVERSHIRT", price: 189900, image: "img/camiseta_negra.jpg", talla: "S" },
-        { id: 2, name: "Jeans Azules", price: 189900, image: "img/jeans_azules.jpg", talla: "XL" },
-        { id: 3, name: "Zapatillas Deportivas", price: 189900, image: "img/zapatillas.jpg", talla: "M" },
-        { id: 4, name: "Chaqueta de Cuero", price: 250000, image: "img/chaqueta_cuero.jpg", talla: "L" }
+        { id: 1, name: "Camisa Negra Básica Hombre", price: 30000, image: "FeaturedProducts/producto1.jpg", talla: "S" },
+        { id: 2, name: "Chaleco mujer", price: 99900, image: "FeaturedProducts/producto_chaleco.jpg", talla: "XL" },
+        { id: 3, name: "Jeans Azules", price: 80000, image: "FeaturedProducts/producto_jeans_azules.jpg", talla: "M" },
+        { id: 4, name: "Chaqueta de Cuero", price: 250000, image: "FeaturedProducts/producto_chaqueta_cuero.jpg", talla: "L" }
     ];
 
     products.forEach(product => {
