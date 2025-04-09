@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | VENCHA</title>
+    <link rel="stylesheet" href="PagProductosMujer.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="Header">
+        <div class="headerPart-1">
+            <a href="IndexPrincipal.html" class="icon-button"><i class='bx bx-arrow-back'></i></a>
+            <a href="IndexPrincipal.html" class="headerLogo">
+            <h1 class="Logo">VENCHA</h1>
+            </a>
+            <div class="icons">
+                <img class="iconButton searchButton" src="Icons/search.svg" alt="Button for search">
+                <a href="user.html">
+                    <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user">
+                </a>
+                <a href="cart.html">
+                    <img class="iconButton cartButton" src="Icons/cart.svg" alt="Button for cart">
+                </a>
+            </div>
+        </div>
+        <div class="headerLine-1"></div>
+    </header>    
+
+    <main class="product-list-mujer" id="product-list-mujer">
+        <!-- Productos en el .js-->
+    </main>
+    
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">VENCHA</div>
+        <div class="footer-links">
+            <div class="footer-section">
+                <p class="negrilla">Acerca de VENCHA</p>
+                <ul>
+                    <li><a href="#">Aviso de Privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Formas de pago</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p class="negrilla">Información adicional</p>
+                <ul>
+                    <li><a href="#">Registro</a></li>
+                    <li><a href="#">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <script src="PagProductosMujer.js"></script>
+    <!-- Notificación persistente (fuera del loop de productos) -->
+    <div id="notificacion">Se ha añadido al carrito</div>
+
+</body>
+</html>

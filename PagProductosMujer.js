@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const productList = document.getElementById("product-list");
+    const productList = document.getElementById("product-list-mujer");
     const notificacion = document.getElementById("notificacion");
 
     // Simulación de productos
     const products = [
-        { id: 1, name: "Camisa Negra Básica", price: "$30.000", image: "img/camiseta_negra.jpg" },
+        { id: 1, name: "Camisa Negra Básica Mujer", price: "$30.000", image: "img/camiseta_negra.jpg" },
         { id: 2, name: "Jeans Azules", price: "$80.000", image: "img/jeans_azules.jpg" },
         { id: 3, name: "Zapatillas Deportivas", price: "$110.000", image: "img/zapatillas.jpg" },
         { id: 4, name: "Chaqueta de Cuero", price: "$250.000", image: "img/chaqueta_cuero.jpg" },
