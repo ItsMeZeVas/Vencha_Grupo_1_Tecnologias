@@ -94,7 +94,7 @@ body {
 
 .image-placeholder {
     width: 80%;
-    height: 400px;
+    height: 500px;
     background: #ddd;
     border-radius: 10px;
 }
@@ -175,20 +175,22 @@ body {
 }
 
 .cart-button {
-    background: #858585;
+    background: #555555;
     color: white;
 }
 
 .buy-button {
-    background: #858585;
+    background: #555555;
     color: white;
 }
 
 .cart-button:hover{
-    background-color: #555555;
+    background-color: #000000;
 }
 .cart-button:active{
-    background-color: #000000;
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
 }
 
 #notificacion {
