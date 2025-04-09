@@ -15,7 +15,10 @@
             <h1 class="Logo">VENCHA</h1>
             </a>
             <div class="icons">
-                <img class="iconButton searchButton" src="Icons/search.svg" alt="Button for search">
+                <div class="search-wrapper">
+                  <img class="iconButton searchButton" src="Icons/search.svg" alt="Buscar">
+                  <input type="text" class="searchInput hidden" placeholder="Buscar..." aria-label="Buscar">
+                </div>
                 <a href="user.html">
                     <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user">
                 </a>
@@ -29,6 +32,7 @@
 
     <main class="product-list-hombre" id="product-list-hombre">
         <!-- Productos en el .js-->
+         <script src="scriptSearch.js"></script>
     </main>
     
     <footer class="footer">
