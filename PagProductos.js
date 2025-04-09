@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Simulación de productos
     const products = [
-        { id: 1, name: "Camisa Negra Básica", price: "$30.000", image: "img/camiseta_negra.jpg" },
-        { id: 2, name: "Jeans Azules", price: "$80.000", image: "img/jeans_azules.jpg" },
-        { id: 3, name: "Zapatillas Deportivas", price: "$110.000", image: "img/zapatillas.jpg" },
-        { id: 4, name: "Chaqueta de Cuero", price: "$250.000", image: "img/chaqueta_cuero.jpg" },
-        { id: 5, name: "Camisa Blanca", price: "$99.900", image: "img/camisa_blanca.jpg" },
-        { id: 6, name: "Gorra Negra", price: "$49.900", image: "img/gorra_negra.jpg" }
+        { id: 1, name: "Camisa Negra Básica Hombre", price: "$30.000", image: "FeaturedProducts/producto1.jpg" },
+        { id: 2, name: "Jeans Azules", price: "$80.000", image: "FeaturedProducts/producto_jeans_azules.jpg" },
+        { id: 3, name: "Zapatillas Deportivas", price: "$110.000", image: "FeaturedProducts/producto_zapatillas_deportivas.jpg" },
+        { id: 4, name: "Chaqueta de Cuero", price: "$250.000", image: "FeaturedProducts/producto_chaqueta_cuero.jpg" },
+        { id: 5, name: "Chaleco mujer", price: "$99.900", image: "FeaturedProducts/producto_chaleco.jpg" },
+        { id: 6, name: "Gorra Negra", price: "$49.900", image: "FeaturedProducts/producto_gorra_negra.jpeg"}
     ];
 
     // Generación dinámica de productos
