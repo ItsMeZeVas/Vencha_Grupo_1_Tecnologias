@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasarela de Pago | VENCHA</title>
+  <link rel="stylesheet" href="Pasarela.css" >
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-top">
+      <a href="IndexPrincipal.html" class="header-logo" aria-label="Volver a la página principal">
+        <i class='bx bx-arrow-back' aria-hidden="true"></i>
+        <h1 class="logo-text">VENCHA</h1>
+      </a>
+      <div class="header-icons">
+        <img class="icon-button" src="Icons/search.svg" alt="Buscar" aria-label="Buscar">
+        <a href="user.html" aria-label="Ir a la cuenta de usuario">
+          <img class="icon-button" src="Icons/user.svg" alt="Usuario">
+        </a>
+        <a href="cart.html" aria-label="Ir al carrito de compras">
+          <img class="icon-button" src="Icons/cart.svg" alt="Carrito">
+        </a>
+      </div>
+    </div>
+    <div class="header-line"></div>
+  </header>
+
+  <main class="payment-container">
+    <form class="payment-form" aria-label="Formulario de pago">
+      <h2 class="section-title">REALICE SU PAGO</h2>
+      <div class="form-grid">
+        <input type="text" placeholder="Nombre de contacto" required aria-label="Nombre de contacto" />
+        <input type="text" placeholder="Dirección" class="invalido" aria-label="Dirección con error" />
+        <input type="text" placeholder="Apto, sitio, unidad, etc. (opcional)" aria-label="Apartamento, sitio o unidad (opcional)" />
+        <input type="text" placeholder="País" aria-label="País" />
+        <input type="text" placeholder="Ciudad" aria-label="Ciudad" />
+        <input type="tel" placeholder="Teléfono" aria-label="Teléfono" />
+        <input type="text" placeholder="Código Postal" aria-label="Código Postal" />
+      </div>
+    </form>
+
+    <section class="order-summary" aria-label="Resumen del pedido">
+      <h3>PEDIDO</h3>
+      <ul>
+        <li aria-label="Producto: Camiseta One-Piece, Precio: 70 dólares">Camiseta One-Piece - $70</li>
+        <li aria-label="Producto: Camiseta One-Piece, Precio: 70 dólares">Camiseta One-Piece - $70</li>
+        <li aria-label="Producto: Camiseta One-Piece, Precio: 70 dólares">Camiseta One-Piece - $70</li>
+      </ul>
+      <div class="order-costs">
+        <p aria-label="Total de ítems: 210 dólares">Total ítems: $210</p>
+        <p aria-label="Costo de envío: 5 dólares">Envío: $5</p>
+        <p class="total" aria-label="Total a pagar: 215 dólares">Total: $215</p>
+      </div>
+      <button class="btn-continue" aria-label="Continuar con el pago">Continuar</button>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Pie de página con información de VENCHA">
+    <div class="footer-container">
+      <div class="footer-logo">VENCHA</div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <p class="bold">Acerca de VENCHA</p>
+          <ul>
+            <li><a href="#" aria-label="Aviso de Privacidad de VENCHA">Aviso de Privacidad</a></li>
+            <li><a href="#" aria-label="Términos y condiciones de VENCHA">Términos y condiciones</a></li>
+            <li><a href="#" aria-label="Formas de pago disponibles">Formas de pago</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p class="bold">Información adicional</p>
+          <ul>
+            <li><a href="#" aria-label="Registro de cuenta">Registro</a></li>
+            <li><a href="#" aria-label="Formulario de contacto">Contáctanos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
