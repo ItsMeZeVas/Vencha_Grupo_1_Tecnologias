@@ -3,8 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const orderItems = document.getElementById("order-items");
     const totalPriceElement = document.getElementById("total-price");
     const finalizarCompraBtn = document.querySelector(".buy-button");
-
     let total = 0;
+
+    const productosLS = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    productosLS.forEach(product => {
+        addToOrder(product.nombre, product.precio, product.talla);
+    });
 
     const products = [
         { id: 1, name: "ROXIE RED OVERSHIRT", price: 189900, image: "img/camiseta_negra.jpg", talla: "S" },
@@ -21,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <section class="product-image">
                 <div class="image-placeholder" style="background-image: url('${product.image}');"></div>
             </section>
-
             <section class="product-details">
                 <h2 class="product-name">${product.name}</h2>
                 <p class="product-subtitle">Tallas: ${product.talla}</p>
@@ -29,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <button class="add-to-cart buy-button" 
                         data-id="${product.id}" 
                         data-name="${product.name}" 
-                        data-price="${product.price}">
+                        data-price="${product.price}" 
+                        data-talla="${product.talla}">
                     Agregar
                 </button>
                 <button class="remove-from-cart buy-button" 
@@ -42,17 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         productList.appendChild(productElement);
-
-        // Añadir automáticamente al resumen
-        addToOrder(product.name, product.price);
     });
 
-    function addToOrder(name, price) {
+    function addToOrder(name, price, talla = "No especificada") {
         const orderItem = document.createElement("div");
         orderItem.classList.add("order-item");
         orderItem.setAttribute("data-name", name);
         orderItem.setAttribute("data-price", price);
-        orderItem.innerHTML = `<p>${name} - $${price.toLocaleString()}</p>`;
+        orderItem.innerHTML = `<p>${name} - Talla: ${talla} - $${price.toLocaleString()}</p>`;
         orderItems.appendChild(orderItem);
         total += price;
         updateTotal();
@@ -75,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.classList.contains("add-to-cart")) {
             const name = event.target.dataset.name;
             const price = parseFloat(event.target.dataset.price);
-            addToOrder(name, price);
+            const talla = event.target.dataset.talla;
+            addToOrder(name, price, talla);
         }
 
         if (event.target.classList.contains("remove-from-cart")) {
@@ -85,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Guardar en localStorage al finalizar compra
     finalizarCompraBtn?.addEventListener("click", () => {
         const items = document.querySelectorAll(".order-item");
         const productosSeleccionados = [];
@@ -98,7 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (productosSeleccionados.length > 0) {
             localStorage.setItem("productosSeleccionados", JSON.stringify(productosSeleccionados));
-            window.location.href = "pasarela.html"; // Ajusta si el nombre de tu archivo es diferente
+            localStorage.removeItem("carrito"); // Limpiar carrito original
+            window.location.href = "pasarela.html";
         } else {
             alert("No hay productos en el carrito.");
         }
