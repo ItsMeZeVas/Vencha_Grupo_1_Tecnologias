@@ -109,17 +109,17 @@ body {
 }
 
 .cart-button {
-    background: #858585;
+    background:#555555;
     color: white;
 }
 
 .buy-button {
-    background: #858585;
+    background:#555555;
     color: white;
 }
 
 .cart-button:hover{
-    background-color: #555555;
+    background-color: black;
 }
 .cart-button:active{
     background-color: #000000;
@@ -198,9 +198,10 @@ body {
     border-radius: 30px;
     cursor: pointer;
     margin-top: 10px;
-    background: #858585;
+    background: #555555;
     color: white;
 }
+
 .product-details {
     display: flex;
     flex-direction: column;
