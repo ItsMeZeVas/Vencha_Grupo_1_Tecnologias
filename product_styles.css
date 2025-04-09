@@ -39,8 +39,9 @@ body {
     font-size: 20px;
     font-weight: bold;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 50%;
+    transform: translateX(50%);
+    top:30%;
 }
 
 /* Contenedor de iconos alineado a la derecha */
@@ -67,6 +68,42 @@ body {
 
 .iconButton:hover {
     transform: scale(1.1);
+}
+
+/* === ESTILOS PARA BUSCADOR CON LUPA === */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.searchInput {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    z-index: 999;
+    position: absolute;
+    right: 5px;
+}
+
+.searchInput.active {
+    width: 150px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchButton.move-left {
+    transform: translateX(-160px);
+    transition: transform 0.3s ease;
 }
 
 
@@ -223,7 +260,7 @@ body {
 .footer {
     margin-top: 5vh;
     width: 100%;
-    background-color: #4a4a4a; /* Color gris oscuro */
+    background-color: #4a4a4a;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -246,7 +283,7 @@ body {
 .footer-links {
     display: flex;
     gap: 50px;
-    align-items: center; /* Asegura que las secciones también estén centradas */
+    align-items: center;
 }
 
 .footer-section h4 {
