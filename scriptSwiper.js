@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const product = document.querySelector(".product");
     if (!product) return 0;
 
-    const productWidth = product.clientWidth; // Usar el ancho real del producto
+    const productWidth = product.clientWidth; 
     const screenWidth = window.innerWidth;
 
     return screenWidth <= 768 ? productWidth : productWidth * 3.1;
