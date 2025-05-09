@@ -32,11 +32,11 @@
 
     <main class="product-container">
         <section class="product-image">
-             <img src="FeaturedProducts/Producto1.jpg" alt="Imagen de producto Camiseta negra basica hombre" class="image-placeholder">
+             <img id="product-image" src="FeaturedProducts/Producto1.jpg" alt="Imagen de producto" class="image-placeholder">
         </section>
 
         <section class="product-details">
-            <h2>Camiseta basica negra</h2>
+            <h2 id="product-title">Cargando...</h2>
             <p class="product-subtitle">Tallas</p>
             <div class="size-options">
                 <button class="size-button">XS</button>
@@ -47,15 +47,16 @@
             </div>
 
             <p class="product-price-label">PRECIO:</p>
-            <h2 class="product-price">$30.000</h2>
+            <h2 id="product-price">$0.00</h2>
 
             <button id="carrito" class="cart-button">Añadir al carrito</button>
 
-                <div id="notificacion" class="oculto">Se ha añadido al carrito</div>
-                <script src="Producto.js"></script>
+            <div id="notificacion" class="oculto">Se ha añadido al carrito</div>
         </section>
-        <script src="scriptSearch.js"></script>
     </main>
+
+    <script src="Producto.js"></script>
+    <script src="scriptSearch.js"></script>
 
     <footer class="footer">
     <div class="footer-container">
@@ -78,6 +79,36 @@
             </div>
         </div>
     </div>
-</footer>
+    </footer>
+
+    <script>
+        // Obtener el id del producto desde la URL
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');  // Obtén el parámetro id
+
+
+        // Obtener los datos del producto desde la API
+        fetch(`http://127.0.0.1:5000/producto/${productId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos del producto');
+                }
+                return response.json();
+            })
+            .then(product => {
+                // Actualizar los detalles del producto en la página
+                document.getElementById("product-title").textContent = product.titulo;
+                document.getElementById("product-price").textContent = `$${Number(product.precio).toLocaleString('es-CO')}`;
+                document.getElementById("product-image").src = product.imagen_url;
+
+                // Opcional: Si hay más detalles (como descripción o tallas disponibles), puedes añadirlos aquí
+                // Ejemplo: 
+                // document.getElementById("product-description").textContent = product.descripcion;
+            })
+            .catch(error => {
+                console.error('Error al cargar los datos del producto:', error);
+                alert('Hubo un problema al cargar los datos del producto.');
+            });
+    </script>
 </body>
 </html>
