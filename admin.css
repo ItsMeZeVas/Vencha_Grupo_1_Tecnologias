@@ -146,11 +146,26 @@ main {
 }
 
 #nuevoProducto {
-  padding: 0.8rem 1.2rem;
-  background-color: #ccc;
+  background-color: #555555;
+  color: white;
   border: none;
-  border-radius: 6px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
   font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+/* Efecto hover */
+#nuevoProducto:hover {
+  background-color: black;
+  transform: scale(1.01);
 }
 
 h2 {
@@ -213,13 +228,24 @@ h2 {
   cursor: pointer;
 }
 
+
 .editar {
-  background-color: #999;
+  background-color: #555555;
   color: white;
+}
+
+.editar:hover {
+  background-color: black;
+  transform: scale(1.01);
 }
 
 .eliminar {
   background-color: #e74c3c;
+  color: white;
+}
+.eliminar:hover {
+  background-color: red;
+  transform: scale(1.01);
   color: white;
 }
 
@@ -231,7 +257,7 @@ h2 {
 
 .guardar {
   padding: 0.8rem 2rem;
-  background-color: #999;
+  background-color: #555555;
   color: white;
   border: none;
   border-radius: 6px;
@@ -239,27 +265,108 @@ h2 {
   font-weight: bold;
 }
 
+.guardar:hover{
+  background-color: black;
+  transform: scale(1.01);
+}
+
 /* Modal */
 .modal {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.6); /* Fondo oscuro semi-transparente */
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .modal-contenido {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 320px;
+  max-width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  animation: slideDown 0.3s ease forwards;
+}
+.modal-contenido h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+}
+/* Inputs estilizados */
+.modal-contenido input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+.modal-contenido input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+}
+/* Botones */
+.modal-contenido button {
+
+  padding: 12px 23px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.modal-contenido button[type="submit"] {
+  background-color: #555555;
+  color: white;
+  margin-right: 10px;
+}
+
+.modal-contenido button[type="submit"]:hover {
+  background-color: black;
+}
+
+.modal-contenido button#cancelar {
+  background-color: #555555;
+  color: white;
+}
+
+.modal-contenido button#cancelar:hover {
+  background-color: black;
+}
 .oculto {
   display: none;
 }
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Responsividad para header y layout admin */
 @media (max-width: 768px) {
