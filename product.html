@@ -1,114 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto | VENCHA</title>
-    <link rel="stylesheet" href="product_styles.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Producto | VENCHA</title>
+  <link rel="stylesheet" href="product_styles.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="Header">
-        <div class="headerPart-1">
-            <a href="IndexPrincipal.html" class="headerLogo" aria-label="Volver a la página principal">
-              <i class='bx bx-arrow-back'></i>
-              <h1 class="Logo">VENCHA</h1>
-            </a>
-            <div class="icons">
-                <div class="search-wrapper">
-                  <img class="iconButton searchButton" src="Icons/search.svg" alt="Buscar">
-                  <input type="text" class="searchInput hidden" placeholder="Buscar..." aria-label="Buscar">
-                </div>
-                <a href="user.html">
-                    <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user">
-                </a>
-                <a href="cart.html">
-                    <img class="iconButton cartButton" src="Icons/cart.svg" alt="Button for cart">
-                </a>
-            </div>
+  <header class="Header">
+    <div class="headerPart-1">
+      <a href="IndexPrincipal.html" class="headerLogo" aria-label="Volver a la página principal">
+        <i class='bx bx-arrow-back'></i>
+        
+        <h1 class="Logo">VENCHA</h1>
+      </a>
+      <div class="icons">
+        <div class="search-wrapper">
+          <img class="iconButton searchButton" src="Icons/search.svg" alt="Buscar" />
+          <input type="text" class="searchInput hidden" placeholder="Buscar..." aria-label="Buscar" />
         </div>
-        <div class="headerLine-1"></div>
-    </header>
-
-    <main class="product-container">
-        <section class="product-image">
-             <img id="product-image" src="FeaturedProducts/Producto1.jpg" alt="Imagen de producto" class="image-placeholder">
-        </section>
-
-        <section class="product-details">
-            <h2 id="product-title">Cargando...</h2>
-            <p class="product-subtitle">Tallas</p>
-            <div class="size-options">
-                <button class="size-button">XS</button>
-                <button class="size-button">S</button>
-                <button class="size-button">M</button>
-                <button class="size-button">L</button>
-                <button class="size-button">XL</button>
-            </div>
-
-            <p class="product-price-label">PRECIO:</p>
-            <h2 id="product-price">$0.00</h2>
-
-            <button id="carrito" class="cart-button" data-id-producto="">Añadir al carrito</button>
-
-            <div id="notificacion" class="oculto">Se ha añadido al carrito</div>
-        </section>
-    </main>
-
-    <script src="Producto.js"></script>
-    <script src="scriptSearch.js"></script>
-
-    <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-logo">VENCHA</div>
-        <div class="footer-links">
-            <div class="footer-section">
-                <p class="negrilla">Acerca de VENCHA</p>
-                <ul>
-                    <li><p href="#">Aviso de Privacidad</p></li>
-                    <li><p href="#">Términos y condiciones</p></li>
-                    <li><p href="#">Formas de pago</p></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <p class="negrilla">Información adicional</p>
-                <ul>
-                    <li><p href="#">Registro</p></li>
-                    <li><p href="#">Contáctanos</p></li>
-                </ul>
-            </div>
-        </div>
+        <a href="user.html">
+          <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user" />
+        </a>
+        <a href="cart.html">
+          <img class="iconButton cartButton" src="Icons/cart.svg" alt="Button for cart" />
+        </a>
+      </div>
     </div>
-    </footer>
-    <script src="Producto.js"></script>
-    <script>
-        // Obtener el id del producto desde la URL
-        const params = new URLSearchParams(window.location.search);
-        const productId = params.get('id');  // Obtén el parámetro id
+    <div class="headerLine-1"></div>
+  </header>
 
+  <main class="product-container">
+    <section class="product-image">
+      <img id="product-image" src="FeaturedProducts/Producto1.jpg" alt="Imagen de producto" class="image-placeholder" />
+    </section>
 
-        // Obtener los datos del producto desde la API
-        fetch(`http://127.0.0.1:5000/producto/${productId}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al obtener los datos del producto');
+    <section class="product-details">
+      <h2 id="product-title">Cargando...</h2>
+      <p class="product-subtitle">Tallas</p>
+      <div class="size-options">
+        <button class="size-button">XS</button>
+        <button class="size-button">S</button>
+        <button class="size-button">M</button>
+        <button class="size-button">L</button>
+        <button class="size-button">XL</button>
+      </div>
+
+      <p class="product-price-label">PRECIO:</p>
+      <h2 id="product-price">$0.00</h2>
+
+      <button id="carrito" class="cart-button" data-id-producto="">Añadir al carrito</button>
+
+      <div id="notificacion" class="oculto" style="display:none; transition: opacity 0.5s;">Se ha añadido al carrito</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">VENCHA</div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <p class="negrilla">Acerca de VENCHA</p>
+          <ul>
+            <li><p>Aviso de Privacidad</p></li>
+            <li><p>Términos y condiciones</p></li>
+            <li><p>Formas de pago</p></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <p class="negrilla">Información adicional</p>
+          <ul>
+            <li><p>Registro</p></li>
+            <li><p>Contáctanos</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("id");
+      const productTitleEl = document.getElementById("product-title");
+      const productPriceEl = document.getElementById("product-price");
+      const productImageEl = document.getElementById("product-image");
+      const carritoBtn = document.getElementById("carrito");
+      const notificacion = document.getElementById("notificacion");
+
+      if (!productId) {
+        alert("Producto no especificado");
+        return;
+      }
+
+      // Cargar producto desde API
+      fetch(`http://127.0.0.1:5000/producto/${productId}`)
+        .then((response) => {
+          if (!response.ok) throw new Error("No se pudo cargar el producto");
+          return response.json();
+        })
+        .then((product) => {
+          productTitleEl.textContent = product.titulo;
+          productPriceEl.textContent = `$${Number(product.precio).toLocaleString("es-CO")}`;
+          productImageEl.src = product.imagen_url;
+
+          // Setear data-id-producto para usar al añadir carrito
+          carritoBtn.setAttribute("data-id-producto", productId);
+
+          // Agregar event listener para añadir al carrito SOLO después de cargar producto
+          carritoBtn.addEventListener("click", function () {
+            const id_usuario = localStorage.getItem("usuario_id");
+            if (!id_usuario) {
+              alert("Por favor inicia sesión para añadir productos al carrito.");
+              window.location.href = "login.php"; // Cambia a tu página de login
+              return;
+            }
+
+            const nombre = productTitleEl.textContent;
+            const precioTexto = productPriceEl.textContent;
+            const precio = parseInt(precioTexto.replace(/\D/g, ""));
+            const tallaSeleccionada = document.querySelector(".size-button.seleccionado");
+            const talla = tallaSeleccionada ? tallaSeleccionada.textContent : "No especificada";
+            const id_producto = parseInt(carritoBtn.getAttribute("data-id-producto"));
+            const cantidad = 1;
+
+            if (!id_producto) {
+              alert("Error: no se pudo identificar el producto.");
+              return;
+            }
+
+            fetch("http://127.0.0.1:5000/carrito/agregar", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                id_usuario: parseInt(id_usuario),
+                id_producto,
+                cantidad,
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.mensaje) {
+                  // Opcional: guarda localmente el carrito para respaldo
+                  let carritoLocal = JSON.parse(localStorage.getItem("carrito")) || [];
+                  carritoLocal.push({ nombre, precio, talla, id_producto, cantidad });
+                  localStorage.setItem("carrito", JSON.stringify(carritoLocal));
+
+                  notificacion.textContent = data.mensaje;
+                  notificacion.style.display = "block";
+                  notificacion.style.opacity = "1";
+
+                  setTimeout(() => {
+                    notificacion.style.opacity = "0";
+                    setTimeout(() => (notificacion.style.display = "none"), 500);
+                  }, 3000);
+                } else {
+                  alert("Error al añadir al carrito");
                 }
-                return response.json();
-            })
-            .then(product => {
-                // Actualizar los detalles del producto en la página
-                document.getElementById("product-title").textContent = product.titulo;
-                document.getElementById("product-price").textContent = `$${Number(product.precio).toLocaleString('es-CO')}`;
-                document.getElementById("product-image").src = product.imagen_url;
+              })
+              .catch((error) => {
+                console.error("Error al añadir al carrito:", error);
+                alert("Error de conexión con el servidor");
+              });
+          });
+        })
+        .catch((error) => {
+          console.error("Error al cargar el producto:", error);
+          alert("No se pudo cargar el producto.");
+        });
+    });
 
-                // Opcional: Si hay más detalles (como descripción o tallas disponibles), puedes añadirlos aquí
-                // Ejemplo: 
-                // document.getElementById("product-description").textContent = product.descripcion;
-            })
-            .catch(error => {
-                console.error('Error al cargar los datos del producto:', error);
-                alert('Hubo un problema al cargar los datos del producto.');
-            });
-    </script>
+    // Tamaño seleccionado visual
+    document.querySelectorAll(".size-button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".size-button").forEach((b) => b.classList.remove("seleccionado"));
+        btn.classList.add("seleccionado");
+      });
+    });
+  </script>
 </body>
 </html>

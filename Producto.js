@@ -1,47 +1,43 @@
+document.getElementById("carrito").setAttribute("data-id-producto", productId);
+
+// Escuchar click después de tener data-id-producto
 document.getElementById("carrito").addEventListener("click", function () {
     const notificacion = document.getElementById("notificacion");
 
-    // Validar usuario logueado
     const id_usuario = localStorage.getItem('usuario_id');
     if (!id_usuario) {
         alert('Por favor inicia sesión para añadir productos al carrito.');
-        window.location.href = 'login.php'; // Cambia a tu página de login
+        window.location.href = 'login.php';
         return;
     }
 
-    // Obtener datos del producto
-    const nombre = document.querySelector(".product-details h2").textContent;
-    const precioTexto = document.querySelector(".product-price").textContent;
-    const precio = parseInt(precioTexto.replace(/\D/g, '')); // Extrae número sin símbolos ni texto
+    const nombre = document.getElementById("product-title").textContent;
+    const precioTexto = document.getElementById("product-price").textContent;
+    const precio = parseInt(precioTexto.replace(/\D/g, ''));
 
     const tallaSeleccionada = document.querySelector(".size-button.seleccionado");
     const talla = tallaSeleccionada ? tallaSeleccionada.textContent : "No especificada";
 
-    // Aquí tendrías que obtener también el id del producto para enviar al backend.
-    // Asumamos que lo tienes como data-id en algún lugar, por ejemplo:
     const id_producto = parseInt(document.getElementById("carrito").getAttribute("data-id-producto"));
-
     if (!id_producto) {
         alert("Error: no se pudo identificar el producto.");
         return;
     }
 
-    const cantidad = 1; // Puedes modificar si permites seleccionar cantidad
+    const cantidad = 1;
 
-    // Enviar datos al backend para añadir al carrito
     fetch('http://127.0.0.1:5000/carrito/agregar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             id_usuario: parseInt(id_usuario),
-            id_producto: id_producto,
+            id_producto: parseInt(id_producto),
             cantidad: cantidad
         })
     })
     .then(response => response.json())
     .then(data => {
         if (data.mensaje) {
-            // Guardar localmente también para respaldo (opcional)
             let carritoLocal = JSON.parse(localStorage.getItem("carrito")) || [];
             carritoLocal.push({ nombre, precio, talla, id_producto, cantidad });
             localStorage.setItem("carrito", JSON.stringify(carritoLocal));

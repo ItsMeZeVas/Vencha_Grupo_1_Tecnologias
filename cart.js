@@ -151,13 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
    finalizarCompraBtn?.addEventListener("click", () => {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    if (carrito.length === 0) {
-        alert("No hay productos en el carrito.");
-        return;
-    }
-
-    // Redirigir a la página de finalización de compra
+  // Redirigir a la página de finalización de compra
     window.location.href = "Pasarela.html"; // Cambia el nombre si tu archivo se llama diferente
+    
+    
     });
     cargarCarrito(); // Carga inicial del carrito
 });
