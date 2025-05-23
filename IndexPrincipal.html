@@ -68,6 +68,21 @@
     <script src="scriptSlider.js"></script>
     <script src="scriptSwiper.js"></script>
     <script src="scriptSearch.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const usuarioId = localStorage.getItem('usuario_id');
+        const userIcon = document.querySelector('a[href="user.html"] img');
+
+        if (usuarioId) {
+          // Puedes cambiar el icono, mostrar nombre, o hacer algo para el usuario logueado
+          userIcon.title = "Usuario ID: " + usuarioId;
+        } else {
+          // No hay usuario logueado, opcional redirigir o mostrar mensaje
+          // Por ejemplo, podrías ocultar carrito o user icon:
+          // document.querySelector('.cartButton').style.display = 'none';
+        }
+      });
+    </script>
 
 </body>
 <footer class="footer">

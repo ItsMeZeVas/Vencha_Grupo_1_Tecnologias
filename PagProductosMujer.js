@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const productList = document.getElementById("product-list-hombre");
     const notificacion = document.getElementById("notificacion");
 
-    // Asumiendo que deseas filtrar por "hombre", pasas ese género como parámetro
-    const genero = 'Mujer'; // Cambia este valor por el género que deseas mostrar
+    const genero = 'Mujer'; // Cambia aquí el filtro que necesites
 
-    // Realizar la solicitud para obtener los productos desde la API
     fetch('http://127.0.0.1:5000/producto')
         .then(response => {
             if (!response.ok) {
@@ -17,12 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // Filtrar productos por género
             const filteredProducts = products.filter(product => product.genero === genero);
 
-            // Verificar si hay productos filtrados
             if (filteredProducts.length === 0) {
                 console.log(`No se encontraron productos para el género "${genero}".`);
             }
 
-            // Generación dinámica de productos
             filteredProducts.forEach(product => {
                 const productElement = document.createElement("div");
                 productElement.classList.add("product-card");
@@ -36,22 +32,55 @@ document.addEventListener("DOMContentLoaded", function () {
                         <h2 class="product-name">${product.titulo}</h2>
                         <p class="product-price-label">PRECIO:</p>
                         <h3 class="product-price">$${Number(product.precio).toLocaleString('es-CO')}</h3>
-                        <button class="cart-button">Añadir al carrito</button>
+                        <button class="cart-button" data-id-producto="${product.id_producto}">Añadir al carrito</button>
                     </div>
                 `;
 
                 productList.appendChild(productElement);
 
-                // Evento para la notificación del carrito
+                // Evento para el botón "Añadir al carrito"
                 const cartButton = productElement.querySelector(".cart-button");
                 cartButton.addEventListener("click", function () {
-                    notificacion.style.display = "block";
-                    notificacion.style.opacity = "1";
+                    const id_usuario = localStorage.getItem('usuario_id');
+                    if (!id_usuario) {
+                        alert('Por favor inicia sesión para añadir productos al carrito.');
+                        window.location.href = 'login.php';
+                        return;
+                    }
 
-                    setTimeout(() => {
-                        notificacion.style.opacity = "0";
-                        setTimeout(() => notificacion.style.display = "none", 500);
-                    }, 2000);
+                    const id_producto = this.getAttribute('data-id-producto');
+                    const cantidad = 1; // Cambia si quieres cantidad dinámica
+
+                    fetch('http://127.0.0.1:5000/carrito/agregar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            id_usuario: parseInt(id_usuario),
+                            id_producto: parseInt(id_producto),
+                            cantidad: cantidad
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.mensaje) {
+                            notificacion.textContent = data.mensaje;
+                            notificacion.style.display = "block";
+                            notificacion.style.opacity = "1";
+
+                            setTimeout(() => {
+                                notificacion.style.opacity = "0";
+                                setTimeout(() => notificacion.style.display = "none", 500);
+                            }, 2000);
+                        } else {
+                            alert('Error al añadir al carrito');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al añadir al carrito:', error);
+                        alert('Error de conexión con el servidor');
+                    });
                 });
             });
         })

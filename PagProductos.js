@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <h2 class="product-name">${product.titulo}</h2>
                         <p class="product-price-label">PRECIO:</p>
                         <h3 class="product-price">$${Number(product.precio).toLocaleString('es-CO')}</h3>
-                        <button class="cart-button">Añadir al carrito</button>
+                        <button class="cart-button" data-id-producto="${product.id_producto}">Añadir al carrito</button>
                     </div>
                 `;
 
@@ -34,14 +34,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Evento para la notificación del carrito
                 const cartButton = productElement.querySelector(".cart-button");
                 cartButton.addEventListener("click", function () {
-                    notificacion.style.display = "block";
-                    notificacion.style.opacity = "1";
+    const id_usuario = localStorage.getItem('usuario_id'); // Obtén el usuario desde localStorage
+    if (!id_usuario) {
+        alert('Por favor inicia sesión para añadir productos al carrito.');
+        window.location.href = 'login.php'; // Cambia a tu página de login
+        return;
+    }
 
-                    setTimeout(() => {
-                        notificacion.style.opacity = "0";
-                        setTimeout(() => notificacion.style.display = "none", 500);
-                    }, 2000);
-                });
+    const id_producto = this.getAttribute('data-id-producto');
+    const cantidad = 1; // Puedes cambiar si quieres cantidad dinámica
+
+    fetch('http://127.0.0.1:5000/carrito/agregar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            id_usuario: parseInt(id_usuario),
+            id_producto: parseInt(id_producto),
+            cantidad: cantidad
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.mensaje) {
+            notificacion.textContent = data.mensaje;
+            notificacion.style.display = "block";
+            notificacion.style.opacity = "1";
+
+            setTimeout(() => {
+                notificacion.style.opacity = "0";
+                setTimeout(() => notificacion.style.display = "none", 500);
+            }, 2000);
+        } else {
+            alert('Error al añadir al carrito');
+        }
+    })
+    .catch(error => {
+        console.error('Error al añadir al carrito:', error);
+        alert('Error de conexión con el servidor');
+    });
+});
             });
         })
         .catch(error => {
