@@ -1,37 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
   const breadcrumb = document.getElementById("breadcrumb");
-  const path = window.location.pathname; // Ej: /categoria/subcategoria/producto.html
-  const parts = path.split("/").filter(p => p); // Quita elementos vacíos
-  
-  // Si no hay partes, mostrar solo Inicio
-  if(parts.length === 0){
-    breadcrumb.innerHTML = `<ul><li>Inicio</li></ul>`;
-    return;
+
+  const nombresPaginas = {
+    '/indexprincipal.html': 'Inicio',
+    '/': 'Inicio',
+    '/pagproductoshombre.html': 'Hombres',
+    '/product.html': 'Producto',
+    '/pagproductosmujer.html': 'Mujeres',
+    '/pagproductos.html': 'Nuevo',
+  };
+
+  function normalizarRuta(ruta) {
+    if (!ruta) return '';
+    const nombreArchivo = ruta.substring(ruta.lastIndexOf('/'));
+    return nombreArchivo.toLowerCase();
   }
-  
-  let html = '<ul>';
-  let acumPath = '/';
-  
-  // Agregamos Inicio siempre
-  html += `<li><a href="/">Inicio</a></li>`;
-  
-  parts.forEach((part, index) => {
-    acumPath += part + (index < parts.length -1 ? '/' : '');
-    
-    // Último elemento no es link
-    if(index === parts.length -1){
-      // Convertir nombre archivo o carpeta a texto legible
-      let text = part.replace('.html','').replace(/-/g, ' ');
-      text = text.charAt(0).toUpperCase() + text.slice(1);
-      html += `<li>${text}</li>`;
-    } else {
-      // Carpeta o parte intermedia es link
-      let text = part.replace(/-/g, ' ');
-      text = text.charAt(0).toUpperCase() + text.slice(1);
-      html += `<li><a href="${acumPath}">${text}</a></li>`;
-    }
-  });
-  
-  html += '</ul>';
-  breadcrumb.innerHTML = html;
+
+  function obtenerNombre(path) {
+    if (!path) return '';
+    if (nombresPaginas[path]) return nombresPaginas[path];
+
+    let nombre = path.substring(path.lastIndexOf('/') + 1).replace('.html', '');
+    return nombre.charAt(0).toUpperCase() + nombre.slice(1);
+  }
+
+  const pathActualNorm = normalizarRuta(window.location.pathname);
+  const pathAnteriorNorm = normalizarRuta(localStorage.getItem('paginaAnterior'));
+
+  const paginaActual = obtenerNombre(pathActualNorm);
+  const paginaAnterior = (pathAnteriorNorm && pathAnteriorNorm !== pathActualNorm) ? obtenerNombre(pathAnteriorNorm) : '';
+
+  if (paginaAnterior) {
+    breadcrumb.innerHTML = `<p>${paginaAnterior}</p>><p>${paginaActual}</p>`;
+  } else {
+    breadcrumb.textContent = paginaActual;
+  }
+
+  localStorage.setItem('paginaAnterior', window.location.pathname);
 });

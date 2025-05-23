@@ -83,6 +83,13 @@
         }
       });
     </script>
+    <script>
+            document.addEventListener("DOMContentLoaded", () => {
+      // Guardar la página actual para que la próxima página pueda saber de dónde vino
+      const path = window.location.pathname;
+      localStorage.setItem('paginaAnterior', path);
+    });
+    </script>
 
 </body>
 <footer class="footer">
