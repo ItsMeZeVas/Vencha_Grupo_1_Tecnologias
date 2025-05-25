@@ -1,0 +1,15 @@
+#breadcrumb {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+#breadcrumb span {
+  text-decoration: none;
+  color: black; /* color del texto */
+  cursor: default;
+  position: relative;
+  padding-left: 10px; /* espacio para la flecha */
+}

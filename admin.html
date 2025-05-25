@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<body>
+   <header class="Header">
+        <div class="headerPart-1">
+            <a href="IndexPrincipal.html" class="icon-button headerLogo" aria-label="Volver a la página principal">
+              <i class='bx bx-arrow-back'></i>
+              <h1 class="Logo">VENCHA</h1>
+            </a>
+            <div class="icons">
+                <a href="user.html">
+                    <img class="iconButton userButton" src="Icons/user.svg" alt="Button for user">
+                </a>
+                <a href="cart.html">
+                    <img class="iconButton cartButton" src="Icons/cart.svg" alt="Button for cart">
+                </a>
+            </div>
+        </div>
+        <div class="headerLine-1"></div>
+    </header>
+
+  <main>
+    <div id="formulario-modal" class="modal oculto">
+      <div class="modal-contenido">
+        <h2>Nuevo Producto</h2>
+        <form id="formularioProducto">
+          <input type="text" name="titulo" placeholder="Título" required />
+          <input type="text" name="descripcion" placeholder="Descripción" required />
+          <input type="text" name="imagen_url" placeholder="Imagen" required />
+          <input type="number" name="precio" placeholder="Precio" required />
+          <input type="text" name="tallas_disponibles" placeholder="Tallas disponibles" required />
+          <input type="text" name="genero" placeholder="Género" required />
+          <button type="submit">Guardar</button>
+          <button type="button" id="cancelar">Cancelar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="top-bar">
+      <button id="nuevoProducto">AÑADIR NUEVO PRODUCTO</button>
+    </div>
+
+    <h2>PRODUCTOS ACTUALES</h2>
+
+    <div class="productos-container">
+      <!-- Producto de ejemplo -->
+      <div class="producto">
+        <img src="https://via.placeholder.com/150" alt="Producto">
+        <div class="info">
+          <h3>Camiseta One-Piece</h3>
+          <p>Talla: S</p>
+          <p class="precio">$139.900</p>
+        </div>
+        <div class="acciones">
+          <button class="editar">EDITAR</button>
+          <button class="eliminar">ELIMINAR</button>
+        </div>
+      </div>
+
+      <!-- Puedes duplicar este bloque para más productos -->
+    </div>
+
+    <div class="guardar-container">
+      <button class="guardar">GUARDAR</button>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">VENCHA</div>
+        <div class="footer-links">
+            <div class="footer-section">
+                <p class="negrilla">Acerca de VENCHA</p>
+                <ul>
+                    <li><p href="#">Aviso de Privacidad</p></li>
+                    <li><p href="#">Términos y condiciones</p></li>
+                    <li><p href="#">Formas de pago</p></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <p class="negrilla">Información adicional</p>
+                <ul>
+                    <li><p href="#">Registro</p></li>
+                    <li><p href="#">Contáctanos</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </footer>
+
+<script src="admin.js"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos Hombre| VENCHA</title>
     <link rel="stylesheet" href="PagProductosHombre.css">
+    <link rel="stylesheet" href="Miga.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
@@ -12,6 +13,9 @@
         <div class="headerPart-1">
             <a href="IndexPrincipal.html" class="headerLogo" aria-label="Volver a la página principal">
               <i class='bx bx-arrow-back'></i>
+              <div id="breadcrumb">
+                  <span>Inicio</span><span>Producto</span>
+            </div>
               <h1 class="Logo">VENCHA</h1>
             </a>
             <div class="icons">
@@ -57,10 +61,16 @@
         </div>
     </div>
     </footer>
-    
+    <script src="Miga.js"></script>
     <script src="PagProductosHombre.js"></script>
+    <script>
+            document.addEventListener("DOMContentLoaded", () => {
+      // Guardar la página actual para que la próxima página pueda saber de dónde vino
+      const path = window.location.pathname;
+      localStorage.setItem('paginaAnterior', path);
+    });
+    </script>
     <!-- Notificación persistente (fuera del loop de productos) -->
     <div id="notificacion">Se ha añadido al carrito</div>
-
 </body>
 </html>
