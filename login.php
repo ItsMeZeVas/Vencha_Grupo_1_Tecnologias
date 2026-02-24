@@ -83,7 +83,7 @@
             localStorage.setItem("usuario_id", resp.usuario_id);
 
             const emailIngresado = data.email.toLowerCase();
-            const admins = ["vera@vencha.com", "admin2@tusitio.com"];
+            const admins = ["vera@vencha.com", "correo@vencha.com"];
 
             if (admins.includes(emailIngresado)) {
               window.location.href = "admin.html";
